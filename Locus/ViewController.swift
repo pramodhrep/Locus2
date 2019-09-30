@@ -10,12 +10,14 @@ import UIKit
 
 class ViewController: UIViewController {
     
+    // Instance Variables
     var currentValue = 50
     var targetValue = 0
     var score = 0
     var round = 0
     var bonus = 0
     
+    // Instance Variables
     @IBOutlet var slider: UISlider!
     @IBOutlet var txtScore: UILabel!
     @IBOutlet var txtRound: UILabel!
@@ -36,9 +38,9 @@ class ViewController: UIViewController {
     @IBAction func showAlert(_ sender: UIButton) {
         
     
-        let difference = abs(currentValue - targetValue)
-        let points = 100 - difference
-        let title: String
+        let difference = abs(currentValue - targetValue) //difference is Local Variable calculating the absolute of the instance variables current value and target value
+        let points = 100 - difference // points is Local Variable
+        let title: String // title is Local Variable
         
         if difference == 0 {
             bonus = 100
@@ -56,19 +58,19 @@ class ViewController: UIViewController {
         
         score += points + bonus
         
-        let message = "You scored \(points) points"
-        let alert = UIAlertController(title: title ,message: message,preferredStyle: .alert)
+        let message = "You scored \(points) points" //message is local Variable
+        let alert = UIAlertController(title: title ,message: message,preferredStyle: .alert) //alert is Local Variable
         let action = UIAlertAction(title: "ok",style: .default,handler: {
             action in
             self.updateLabels()
-        })
+        }) //action is Local Variable
         alert.addAction(action)
         present(alert,animated: true,completion: nil)
     startNewRound()
     }
     
     @IBAction func sliderMoved(_ slider: UISlider) {
-        let roundedValue = slider.value.rounded()
+        let roundedValue = slider.value.rounded() //Local Variable
         currentValue = Int(roundedValue)
     }
     

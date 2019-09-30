@@ -20,5 +20,4 @@ class AboutViewController: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    
 }
